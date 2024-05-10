@@ -6,14 +6,13 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 21:07:36 by htrindad          #+#    #+#             */
-/*   Updated: 2024/05/09 17:57:22 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/05/10 19:33:45 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd, int *len)
 {
-	write(fd, s, ft_strlen(s));
-	return ((int)ft_strlen(s));
+	*len += (int)write(fd, s, ft_strlen(s));
 }
