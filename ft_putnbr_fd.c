@@ -6,25 +6,29 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 21:05:58 by htrindad          #+#    #+#             */
-/*   Updated: 2024/05/10 18:48:07 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/05/09 19:39:29 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd, int *len)
+static int	g_size = 0;
+
+void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)
-		ft_putstr_fd("-2147483648", fd, len);
+		g_size = ft_putstr_fd("-2147483648", fd);
 	else
 	{
+		g_size++;
 		if (n < 0)
 		{
-			ft_putchar_fd(45, fd, len);
+			ft_putchar_fd(45, fd);
 			n = -n;
 		}
 		if (n > 9)
-			ft_putnbr_fd(n / 10, fd, len);
-		ft_putchar_fd(n % 10 + 48, fd, len);
+			ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd(n % 10 + 48, fd);
 	}
+	return (g_size);
 }

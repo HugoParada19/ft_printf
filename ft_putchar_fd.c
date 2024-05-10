@@ -6,13 +6,14 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 21:04:32 by htrindad          #+#    #+#             */
-/*   Updated: 2024/05/10 19:33:34 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/05/09 18:46:05 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <unistd.h>
 
-void	ft_putchar_fd(char c, int fd, int *len)
+int	ft_putchar_fd(char c, int fd)
 {
-	*len += (int)write(fd, &c, 1);
+	write(fd, &c, 1);
+	return (1);
 }

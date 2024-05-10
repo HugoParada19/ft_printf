@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 18:49:58 by htrindad          #+#    #+#             */
-/*   Updated: 2024/05/10 18:47:21 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/05/09 19:14:13 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,30 @@ static int	ft_ptr_len(uintptr_t ptr)
 	return (i);
 }
 
-static void	ft_ptr(uintptr_t ptr, int fd, int *len)
+static int	ft_ptr(uintptr_t ptr, int fd)
 {
 	if (ptr > 15)
 	{
-		ft_ptr(ptr / 16, fd, len);
-		ft_ptr(ptr % 16, fd, len);
+		ft_ptr(ptr / 16);
+		ft_ptr(ptr % 16);
 	}
 	else
 	{
 		if (ptr < 10)
-			ft_putchar_fd((ptr + 48), fd, len);
+			ft_putchar_fd((ptr + 48), fd);
 		else
-			ft_putchar_fd((ptr - 10 + 97), fd, len);
+			ft_putchar_fd((ptr - 10 + 97), fd);
 	}
 }
 
-void	ft_putptr_fd(unsigned long long ptr, int fd, int *print_l)
+int	ft_putptr_fd(unsigned long long ptr, int fd)
 {
+	int	print_l;
+
+	print_l = ft_putstr_fd("0x", fd);
 	if (!ptr)
-	{
-		ft_putstr_fd("(nil)", fd, print_l);
-		return ;
-	}
-	ft_putstr_fd("0x", fd, print_l);
-	ft_ptr(ptr, fd, print_l);
+		return (print_l + ft_putchar_fd('0', fd));
+	ft_ptr(ptr);
 	print_l += ft_ptr_len(ptr);
+	return (print_l);
 }
