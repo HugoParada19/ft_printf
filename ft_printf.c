@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 20:18:17 by htrindad          #+#    #+#             */
-/*   Updated: 2024/05/10 19:35:48 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/05/13 20:51:09 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ static void	ft_callarg(va_list args, char c, int *print_l)
 		ft_putnbr_fd(va_arg(args, int), 1, print_l);
 	if (c == 117)
 		ft_print_ung_fd(va_arg(args, unsigned int), 1, print_l);
+	if (c == 37)
+		ft_putchar_fd(37, 1, print_l);
+	if (c == 120)
+		ft_puthexa_fd(va_arg(args, unsigned int), 1, print_l, false);
+	if (c == 88)
+		ft_puthexa_fd(va_arg(args, unsigned int), 1, print_l, true);
 }
 
 int	ft_printf(const char *s, ...)
