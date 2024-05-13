@@ -6,13 +6,13 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 20:23:50 by htrindad          #+#    #+#             */
-/*   Updated: 2024/05/13 20:50:42 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/05/13 20:59:15 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_toupper(char *s)
 {
-	while(*s)
+	while (*s)
 	{
 		if (*s > 96 && *s < 123)
 			*s -= 32;
