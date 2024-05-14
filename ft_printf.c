@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 20:18:17 by htrindad          #+#    #+#             */
-/*   Updated: 2024/05/13 20:51:09 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:36:07 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int	ft_printf(const char *s, ...)
 			ft_putchar_fd(*s, 1, print_l);
 		s++;
 	}
-	printf("%d\n", print_c);
 	va_end(args);
 	return (print_c);
 }
