@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 21:04:32 by htrindad          #+#    #+#             */
-/*   Updated: 2024/05/10 19:33:34 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:52:39 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd, int *len)
 {
-	*len += (int)write(fd, &c, 1);
+	*len += write(fd, &c, 1);
 }

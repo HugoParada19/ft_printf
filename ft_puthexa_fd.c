@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 15:15:59 by htrindad          #+#    #+#             */
-/*   Updated: 2024/05/13 20:55:00 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:05:48 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,23 @@ static unsigned int	ft_hexalen(unsigned int hex)
 	return (i);
 }
 
+static uint8_t	ft_free_all(char *num)
+{
+	if (!num)
+	{
+		free(num);
+		return (0);
+	}
+	return (1);
+}
+
 static char	*ft_ol(unsigned int hex)
 {
 	char	*num;
 
 	num = malloc(sizeof(char) * 2);
-	if (!num)
-		return (NULL);
+	if (!ft_free_all(num))
+		return (0);
 	num[1] = 0;
 	if (hex < 10)
 		num[0] = hex + 48;
@@ -51,7 +61,7 @@ void	ft_puthexa_fd(unsigned int hex, int fd, int *len, bool cap)
 	else
 	{
 		num = malloc(sizeof(char) * (size + 1));
-		if (!num)
+		if (!ft_free_all(num))
 			return ;
 		num[size] = 0;
 		while (size--)
