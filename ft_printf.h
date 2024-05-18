@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 19:54:08 by htrindad          #+#    #+#             */
-/*   Updated: 2024/05/13 20:50:57 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/05/18 17:24:14 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdint.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <stdbool.h>
 
 int			ft_strlen(const char *str);

@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 15:15:59 by htrindad          #+#    #+#             */
-/*   Updated: 2024/05/17 12:05:48 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/05/18 18:52:05 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ static uint8_t	ft_free_all(char *num)
 	return (1);
 }
 
+static char	ft_setnum(unsigned int calc)
+{
+	const char	*set = "0123456789abcdef";
+
+	return (set[calc]);
+}
+
 static char	*ft_ol(unsigned int hex)
 {
 	char	*num;
@@ -43,10 +50,7 @@ static char	*ft_ol(unsigned int hex)
 	if (!ft_free_all(num))
 		return (0);
 	num[1] = 0;
-	if (hex < 10)
-		num[0] = hex + 48;
-	else
-		num[0] = hex + 97;
+	num[0] = ft_setnum(hex);
 	return (num);
 }
 
@@ -66,14 +70,12 @@ void	ft_puthexa_fd(unsigned int hex, int fd, int *len, bool cap)
 		num[size] = 0;
 		while (size--)
 		{
-			if (hex % 16 > 9)
-				num[size] = hex % 16 - 10 + 97;
-			else
-				num[size] = hex % 16 + 48;
+			num[size] = ft_setnum(hex % 16);
 			hex /= 16;
 		}
 	}
 	if (cap)
 		ft_toupper(num);
 	ft_putstr_fd(num, fd, len);
+	free(num);
 }
